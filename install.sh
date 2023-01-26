@@ -6,7 +6,11 @@ ln -nfs $(pwd)/.bash_aliases ~/.
 ln -nfs $(pwd)/.fonts ~/.
 
 # Install git configs
-cp .git-credentials ~/.
+if [ -f ~/.git-credentials ]; then
+	echo "Git credentials file found in HOME directory!"
+else
+	cp .git-credentials ~/.
+fi
 ln -nfs $(pwd)/.gitconfig ~/.
 
 # Install tmux config
