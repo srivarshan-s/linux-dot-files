@@ -1,5 +1,6 @@
 # Install bash config
 ln -nfs $(pwd)/.bashrc ~/.
+ln -nfs $(pwd)/.bash_aliases ~/.
 
 # Install fonts
 ln -nfs $(pwd)/.fonts ~/.
