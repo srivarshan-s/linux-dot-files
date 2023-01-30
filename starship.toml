@@ -1,5 +1,5 @@
-[line_break]
-disabled = true
+# [line_break]
+# disabled = true
 
 [aws]
 symbol = "  "
