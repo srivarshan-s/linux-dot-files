@@ -22,3 +22,5 @@ ln -nfs $(pwd)/alacritty ~/.config/.
 # Install starship config
 ln -nfs $(pwd)/starship.toml ~/.config/.
 
+# Install hosts file
+sudo ln -nfs $(pwd)/hosts /etc/.
