@@ -88,6 +88,9 @@ eval "$(starship init bash)"
 git-credential-store () {
     git config credential.helper store
 }
+btrfs-snap () {
+	sudo btrfs subvolume snapshot /home /snapshots/snapshot-$(date +"%Y-%b-%d_%H_%M_%S")
+}
 
 # Added by rustup intallation
 . "$HOME/.cargo/env"
