@@ -91,6 +91,10 @@ git-credential-store () {
 btrfs-snap () {
 	sudo btrfs subvolume snapshot /home /home/sri/.snapshots/snapshot-$(date +"%Y-%b-%d_%H_%M_%S")
 }
+backup () {
+	rsync -av --delete $HOME/Documents/ $HOME/Windows/Downloads/Documents-Backup/
+	rsync -av --delete $HOME/Downloads/ $HOME/Windows/Downloads/Downloads-Backup/
+}
 
 # Added by rustup intallation
 . "$HOME/.cargo/env"
