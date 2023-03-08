@@ -1,2 +1,2 @@
-# ubuntu-dot-files
-Linux config files.
+# fedora-dot-files
+Linux config files for Fedora Linux.
