@@ -1,2 +1,2 @@
-# ubuntu-dot-files
+# linux-dot-files
 Linux config files.
