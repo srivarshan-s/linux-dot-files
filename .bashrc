@@ -70,6 +70,10 @@ eval "$(starship init bash)"
 git-credential-store () {
     git config credential.helper store
 }
+backup () {
+	rsync -av --delete --exclude 'venv' $HOME/Documents/ $HOME/Windows/Downloads/Documents-Backup/
+	rsync -av --delete --exclude 'venv' $HOME/Downloads/ $HOME/Windows/Downloads/Downloads-Backup/
+}
 
 # Added by rustup intallation
 . "$HOME/.cargo/env"
