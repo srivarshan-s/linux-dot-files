@@ -52,7 +52,7 @@ export VISUAL="nvim"
 export EDITOR="nvim"
 
 # Add ~/.local/bin/ to path
-export PATH="$HOME/.local/bin/:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # Add ~/.cargo/bin/ to path
 export PATH="$HOME/.cargo/bin:$PATH"
