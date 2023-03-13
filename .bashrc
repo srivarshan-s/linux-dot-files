@@ -84,16 +84,20 @@ PS1='\[\033[01;32m\]\u@\h \[\033[01;34m\]\W\[\033[00m\] % '
 # Starship Prompt
 eval "$(starship init bash)"
 
-# Custom function
+# Custom functions
 git-credential-store () {
     git config credential.helper store
 }
 btrfs-snap () {
-	sudo btrfs subvolume snapshot /home /home/sri/.snapshots/snapshot-$(date +"%Y-%b-%d_%H_%M_%S")
+	snap_name=$(date +"%Y-%b-%d_%H_%M_%S")
+	mkdir /snapshots/$snap_name
+	sudo btrfs subvolume snapshot /home/ /snapshots/$snap_name/home
+	sudo btrfs subvolume snapshot / /snapshots/$snap_name/root
 }
 backup () {
-	rsync -a --delete $HOME/Documents/ $HOME/Windows/Downloads/Documents-Backup/
-	rsync -a --delete $HOME/Downloads/ $HOME/Windows/Downloads/Downloads-Backup/
+	rsync -av $HOME/Documents/ $HOME/Windows/Downloads/Documents-Backup/
+	rsync -av $HOME/Downloads/ $HOME/Windows/Downloads/Downloads-Backup/
+	rsync -av $HOME/Builds/ $HOME/Windows/Downloads/Builds-Backup/
 }
 
 # Added by rustup intallation
