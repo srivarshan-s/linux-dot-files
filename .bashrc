@@ -73,6 +73,7 @@ git-credential-store () {
 backup () {
 	rsync -av --delete --exclude 'venv' $HOME/Documents/ $HOME/Windows/Downloads/Documents-Backup/
 	rsync -av --delete --exclude 'venv' $HOME/Downloads/ $HOME/Windows/Downloads/Downloads-Backup/
+	rsync -av --delete --exclude 'venv' $HOME/Builds/ $HOME/Windows/Downloads/Builds-Backup/
 }
 
 # Added by rustup intallation
