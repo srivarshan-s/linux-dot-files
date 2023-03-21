@@ -90,14 +90,14 @@ git-credential-store () {
 }
 btrfs-snap () {
 	snap_name=$(date +"%Y-%b-%d_%H_%M_%S")
-	mkdir /snapshots/$snap_name
+	btrfs subvolume create /snapshots/$snap_name
 	sudo btrfs subvolume snapshot /home/ /snapshots/$snap_name/home
 	sudo btrfs subvolume snapshot / /snapshots/$snap_name/root
 }
 backup () {
-	rsync -av $HOME/Documents/ $HOME/Windows/Downloads/Documents-Backup/
-	rsync -av $HOME/Downloads/ $HOME/Windows/Downloads/Downloads-Backup/
-	rsync -av $HOME/Builds/ $HOME/Windows/Downloads/Builds-Backup/
+	rsync -av --exclude 'venv' $HOME/Documents/ $HOME/Windows/Downloads/Documents-Backup/
+	rsync -av --exclude 'venv' $HOME/Downloads/ $HOME/Windows/Downloads/Downloads-Backup/
+	rsync -av --exclude 'venv' $HOME/Builds/ $HOME/Windows/Downloads/Builds-Backup/
 }
 
 # Added by rustup intallation
