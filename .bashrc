@@ -82,23 +82,27 @@ xhost +local:* > /dev/null
 PS1='\[\033[01;32m\]\u@\h \[\033[01;34m\]\W\[\033[00m\] % '
 
 # Starship Prompt
-eval "$(starship init bash)"
+if which starship > /dev/null 2>&1
+then
+	eval "$(starship init bash)"
+fi
 
 # Custom functions
 git-credential-store () {
     git config credential.helper store
 }
-btrfs-snap () {
-	snap_name=$(date +"%Y-%b-%d_%H_%M_%S")
-	btrfs subvolume create /snapshots/$snap_name
-	sudo btrfs subvolume snapshot /home/ /snapshots/$snap_name/home
-	sudo btrfs subvolume snapshot / /snapshots/$snap_name/root
+backup-snapper () {
+	snapper -c root create
+	snapper -c home create
 }
 backup () {
-	rsync -av --exclude 'venv' $HOME/Documents/ $HOME/Windows/Downloads/Documents-Backup/
-	rsync -av --exclude 'venv' $HOME/Downloads/ $HOME/Windows/Downloads/Downloads-Backup/
+	rsync -av --delete --exclude 'venv' $HOME/Documents/ $HOME/Windows/Downloads/Documents-Backup/
+	rsync -av --delete --exclude 'venv' $HOME/Downloads/ $HOME/Windows/Downloads/Downloads-Backup/
 	rsync -av --exclude 'venv' $HOME/Builds/ $HOME/Windows/Downloads/Builds-Backup/
 }
 
 # Added by rustup intallation
-. "$HOME/.cargo/env"
+if which rustup > /dev/null 2>&1
+then
+	. "$HOME/.cargo/env"
+fi
