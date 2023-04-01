@@ -19,6 +19,9 @@ ln -nfs $(pwd)/.tmux.conf ~/.
 # Install alacritty config
 ln -nfs $(pwd)/alacritty ~/.config/.
 
+# Install mpv config
+ln -nfs $(pwd)/mpv ~/.config/.
+
 # Install starship config
 ln -nfs $(pwd)/starship.toml ~/.config/.
 
