@@ -22,6 +22,9 @@ ln -nfs $(pwd)/alacritty ~/.config/.
 # Install mpv config
 ln -nfs $(pwd)/mpv ~/.config/.
 
+# Install htop config
+ln -nfs $(pwd)/htop ~/.config/.
+
 # Install starship config
 ln -nfs $(pwd)/starship.toml ~/.config/.
 
