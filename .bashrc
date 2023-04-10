@@ -99,6 +99,7 @@ backup () {
 	rsync -av --delete --exclude 'venv' $HOME/Documents/ $HOME/Windows/Downloads/Documents-Backup/
 	rsync -av --delete --exclude 'venv' $HOME/Downloads/ $HOME/Windows/Downloads/Downloads-Backup/
 	rsync -av --exclude 'venv' $HOME/Builds/ $HOME/Windows/Downloads/Builds-Backup/
+	rsync -av $HOME/Music/ $HOME/Windows/Downloads/Music-Backup/
 }
 
 # Added by rustup intallation
